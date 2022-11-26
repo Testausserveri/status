@@ -1,0 +1,56 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=gatus
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+
+  status:
+    image: twinproduction/gatus:latest
+    restart: unless-stopped
+    labels:
+      # routing
+      - "traefik.enable=true"
+      - "traefik.http.routers.status.rule=Host(`status.protokolla.fi`)"
+      - "traefik.http.routers.status.middlewares=status"
+      # SSL
+      - "traefik.http.routers.status.entrypoints=websecure"
+      - "traefik.http.routers.status.tls.certresolver=httpchallenge"
+    volumes:
+      - /opt/gatus/config/:/config
+    depends_on:
+      - postgres
+
+  traefik:
+    image: "traefik:latest"
+    container_name: "traefik"
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.httpchallenge.acme.httpchallenge=true"
+      - "--certificatesresolvers.httpchallenge.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.httpchallenge.acme.email=email@example.com"
+      - "--certificatesresolvers.httpchallenge.acme.storage=/letsencrypt/acme.json"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    restart: unless-stopped
+
+volumes:
+  letsencrypt:
+  db:

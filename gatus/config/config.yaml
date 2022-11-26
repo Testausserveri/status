@@ -1,0 +1,41 @@
+{
+    "storage": {
+        "type": "postgres",
+        "path": "postgres://username:password@postgres:5432/gatus?sslmode=disable"
+    },
+    "debug": true,
+    "skip-invalid-config-update": true,
+    "disable-monitoring-lock": true,
+    "alerting": {
+        "discord": {
+            "webhook-url": "##WEBHOOK_PLACEHOLDER##",
+            "default-alert": {
+                "enabled": true,
+                "send-on-resolved": true,
+                "failure-threshold": 2,
+                "success-threshold": 2
+            }
+        }
+    },
+    "ui": {
+        "title": "Protokolla.fi - Uptime",
+        "header": "Protokolla.fi - Status",
+        "description": "Protokolla.fi domainin uptime.",
+    },
+    "endpoints": [
+        {
+            "name": "Protokolla",
+            "url": "https://protokolla.fi/",
+            "interval": "1m",
+            "conditions": [
+                "[STATUS] == 200",
+                "[CERTIFICATE_EXPIRATION] > 48h"
+            ],
+            "alerts": [
+                {
+                    "type": "discord"
+                }
+            ]
+        },
+    ]
+}

@@ -1,0 +1,27 @@
+name: Initalize server (install Docker)
+on: [workflow_dispatch]
+
+jobs:
+  Initialize-Server:
+    name: Initialize Server
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Docker
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sh get-docker.sh
+    - name: Install Docker-Compose
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          sudo apt-get -y install docker-compose # fuck u if u use any other package manager
