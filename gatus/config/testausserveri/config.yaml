@@ -1,0 +1,184 @@
+storage:
+  type: postgres
+  path: "postgres://username:password@testausserveripostgres:5432/gatus?sslmode=disable"
+
+debug: true
+skip-invalid-config-update: true
+disable-monitoring-lock: true
+
+alerting:
+  discord:
+    webhook-url: "##WEBHOOK_PLACEHOLDER##"
+    default-alert:
+      enabled: true
+      send-on-resolved: true
+      failure-threshold: 2
+      success-threshold: 2
+
+ui:
+  title: Testausserveri - Status
+  header: Testausserveri - Status
+  description: Testausserveri-organisaation palveluiden tilannehuone.
+  logo: https://static.testausserveri.fi/testausserveri_logo_colored_square.png # https://testausserveri.fi/logo.svg
+  ui.link: https://testausserveri.fi
+  buttons:
+    - name: Jäsenten sivujen status
+      link: https://members.status.testausserveri.fi
+
+endpoints:
+  - name: Etusivu
+    group: Viralliset
+    url: "https://testausserveri.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+      # - "[DOMAIN_EXPIRATION] > 720h"
+    alerts:
+      - type: discord
+
+  - name: API
+    group: Viralliset
+    url: "https://api.testausserveri.fi/v1/discord/guildInfo"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "has([BODY].codingLeaderboard) == true"
+      - "has([BODY].messagesLeaderboard) == true"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: Karhu
+    group: Viralliset
+    url: "https://karhu.testausserveri.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: OpenWilma
+    group: Viralliset
+    url: "https://openwilma.testausserveri.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: QR-pyörä
+    group: Viralliset
+    url: "https://qrpyora.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+      # - "[DOMAIN_EXPIRATION] > 720h"
+    alerts:
+      - type: discord
+
+  - name: Bitwarden
+    group: Viralliset
+    url: "https://bitwarden.testausserveri.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: Mastodon
+    group: Viralliset
+    url: "https://mastodon.testausserveri.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: Etusivu
+    group: Testaustime
+    url: "https://testaustime.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+      # - "[DOMAIN_EXPIRATION] > 720h"
+    alerts:
+      - type: discord
+
+  - name: API
+    group: Testaustime
+    url: "https://api.testaustime.fi/auth/login"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 404"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: Matikkaeditori
+    group: Matikkaeditori
+    url: "https://matikkaeditori.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+      # - "[DOMAIN_EXPIRATION] > 720h"
+    alerts:
+      - type: discord
+
+  - name: v3
+    group: Matikkaeditori
+    url: "https://v3.matikkaeditori.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: Beta
+    group: Matikkaeditori
+    url: "https://beta.matikkaeditori.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+      
+  - name: Kaava
+    group: Matikkaeditori
+    url: "https://kaava.matikkaeditori.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: Abitikku
+    group: Abitikku
+    url: "https://abitikku.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+      # - "[DOMAIN_EXPIRATION] > 720h"
+    alerts:
+      - type: discord
+
+  - name: Teapot
+    group: Palvelimet
+    url: "https://teapot.testausserveri.fi"
+    interval: 1m
+    conditions:
+      - "[CONNECTED] == true"
+      - "[IP] == 152.67.70.55"
+    alerts:
+      - type: discord
