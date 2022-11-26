@@ -1,31 +1,57 @@
 version: '3.3'
 
 services:
-  postgres:
+  memberspostgres:
     image: postgres
     restart: unless-stopped
     volumes:
-      - db:/var/lib/postgresql/data
+      - members_db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=gatus
       - POSTGRES_USER=username
       - POSTGRES_PASSWORD=password
 
-  status:
+  membersstatus:
     image: twinproduction/gatus:latest
     restart: unless-stopped
     labels:
       # routing
       - "traefik.enable=true"
-      - "traefik.http.routers.status.rule=Host(`status.protokolla.fi`)"
+      - "traefik.http.routers.status.rule=Host(`members.status.testausserveri.fi`)"
       - "traefik.http.routers.status.middlewares=status"
       # SSL
       - "traefik.http.routers.status.entrypoints=websecure"
       - "traefik.http.routers.status.tls.certresolver=httpchallenge"
     volumes:
-      - /opt/gatus/config/:/config
+      - /opt/gatus/config/members:/config
     depends_on:
-      - postgres
+      - memberspostgres
+
+  testausserveripostgres:
+    image: postgres
+    restart: unless-stopped
+    volumes:
+      - testausserveri_db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=gatus
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+
+  testausserveristatus:
+    image: twinproduction/gatus:latest
+    restart: unless-stopped
+    labels:
+      # routing
+      - "traefik.enable=true"
+      - "traefik.http.routers.status.rule=Host(`status.testausserveri.fi`)"
+      - "traefik.http.routers.status.middlewares=status"
+      # SSL
+      - "traefik.http.routers.status.entrypoints=websecure"
+      - "traefik.http.routers.status.tls.certresolver=httpchallenge"
+    volumes:
+      - /opt/gatus/config/testausserveri:/config
+    depends_on:
+      - testausserveripostgres
 
   traefik:
     image: "traefik:latest"
@@ -38,7 +64,7 @@ services:
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.httpchallenge.acme.httpchallenge=true"
       - "--certificatesresolvers.httpchallenge.acme.httpchallenge.entrypoint=web"
-      - "--certificatesresolvers.httpchallenge.acme.email=email@example.com"
+      - "--certificatesresolvers.httpchallenge.acme.email=erikoisjaakari@koira.testausserveri.fi"
       - "--certificatesresolvers.httpchallenge.acme.storage=/letsencrypt/acme.json"
       - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
       - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
@@ -53,4 +79,5 @@ services:
 
 volumes:
   letsencrypt:
-  db:
+  testausserveri_db:
+  members_db:
