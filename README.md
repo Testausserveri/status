@@ -27,8 +27,11 @@ Go to `Settings` -> `Secrets` -> `Actions` -> `Add new repository secret`
 You have to create four (4) secrets.
 
 **HOST:** *This is the IP address of the server or domain (that resolves to the server IP). Server has to have an SSH server running.*
+
 **USERNAME:** *SSH username (most often root, ubuntu or debian). User must have a root/sudo access.*
+
 **KEY:** *SSH private key (generate with `ssh-keygen`). Add this to the server on `~/.ssh/authorized_keys` folder (most hosting services can do this on server creation too)*
+
 **PORT:** *SSH server port (pretty much always 22)*
 
 Helpful picture:
