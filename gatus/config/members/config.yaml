@@ -228,8 +228,8 @@
             ]
         },
         {
-            "name": "eetu.codes",
-            "url": "https://eetu.codes/",
+            "name": "eetumaenpaa.fi",
+            "url": "https://eetumaenpaa.fi/",
             "interval": "1m",
             "conditions": [
                 "[STATUS] == 200",
