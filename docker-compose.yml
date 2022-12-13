@@ -17,11 +17,11 @@ services:
     labels:
       # routing
       - "traefik.enable=true"
-      - "traefik.http.routers.status.rule=Host(`members.status.testausserveri.fi`)"
-      - "traefik.http.routers.status.middlewares=status"
+      - "traefik.http.routers.membersstatus.rule=Host(`members.status.testausserveri.fi`)"
+      - "traefik.http.routers.membersstatus.middlewares=status"
       # SSL
-      - "traefik.http.routers.status.entrypoints=websecure"
-      - "traefik.http.routers.status.tls.certresolver=httpchallenge"
+      - "traefik.http.routers.membersstatus.entrypoints=websecure"
+      - "traefik.http.routers.membersstatus.tls.certresolver=httpchallenge"
     volumes:
       - ./config/members:/config
     depends_on:
@@ -43,11 +43,11 @@ services:
     labels:
       # routing
       - "traefik.enable=true"
-      - "traefik.http.routers.status.rule=Host(`status.testausserveri.fi`)"
-      - "traefik.http.routers.status.middlewares=status"
+      - "traefik.http.routers.testausserveristatus.rule=Host(`status.testausserveri.fi`)"
+      - "traefik.http.routers.testausserveristatus.middlewares=status"
       # SSL
-      - "traefik.http.routers.status.entrypoints=websecure"
-      - "traefik.http.routers.status.tls.certresolver=httpchallenge"
+      - "traefik.http.routers.testausserveristatus.entrypoints=websecure"
+      - "traefik.http.routers.testausserveristatus.tls.certresolver=httpchallenge"
     volumes:
       - ./config/testausserveri:/config
     depends_on:
