@@ -16,7 +16,7 @@ alerting:
 ui:
   title: Testausserverin jäsenet - Status
   header: Testausserveri jäsenet - Status
-  description: Testausserveri-organisaation jäsenten kotisivujen tilannehuone.
+  description: Testausserveri-organisaation jäsenten kotisivujen tilannehuone. Lisää oma sivusi tekemällä pull request https://github.com/RoyTakanen/status.
   logo: https://static.testausserveri.fi/testausserveri_logo_colored_square.png
   ui.link: https://testausserveri.fi
   buttons:
