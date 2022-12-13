@@ -159,3 +159,11 @@ endpoints:
   - "[CERTIFICATE_EXPIRATION] > 48h"
   alerts:
   - type: discord
+- name: esinko.net
+  url: https://esinko.net/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
