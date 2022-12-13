@@ -18,7 +18,6 @@ services:
       # routing
       - "traefik.enable=true"
       - "traefik.http.routers.membersstatus.rule=Host(`members.status.testausserveri.fi`)"
-      - "traefik.http.routers.membersstatus.middlewares=membersstatus"
       # SSL
       - "traefik.http.routers.membersstatus.entrypoints=websecure"
       - "traefik.http.routers.membersstatus.tls.certresolver=httpchallenge"
@@ -44,7 +43,6 @@ services:
       # routing
       - "traefik.enable=true"
       - "traefik.http.routers.testausserveristatus.rule=Host(`status.testausserveri.fi`)"
-      - "traefik.http.routers.testausserveristatus.middlewares=testausserveristatus"
       # SSL
       - "traefik.http.routers.testausserveristatus.entrypoints=websecure"
       - "traefik.http.routers.testausserveristatus.tls.certresolver=httpchallenge"
