@@ -23,7 +23,7 @@ services:
       - "traefik.http.routers.status.entrypoints=websecure"
       - "traefik.http.routers.status.tls.certresolver=httpchallenge"
     volumes:
-      - /opt/gatus/config/members:/config
+      - ./config/members:/config
     depends_on:
       - memberspostgres
 
@@ -49,7 +49,7 @@ services:
       - "traefik.http.routers.status.entrypoints=websecure"
       - "traefik.http.routers.status.tls.certresolver=httpchallenge"
     volumes:
-      - /opt/gatus/config/testausserveri:/config
+      - ./config/testausserveri:/config
     depends_on:
       - testausserveripostgres
 

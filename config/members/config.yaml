@@ -1,273 +1,161 @@
-{
-    "storage": {
-        "type": "postgres",
-        "path": "postgres://username:password@memberspostgres:5432/gatus?sslmode=disable"
-    },
-    "debug": true,
-    "skip-invalid-config-update": true,
-    "disable-monitoring-lock": true,
-    "alerting": {
-        "discord": {
-            "webhook-url": "##WEBHOOK_PLACEHOLDER##",
-            "default-alert": {
-                "enabled": true,
-                "send-on-resolved": true,
-                "failure-threshold": 2,
-                "success-threshold": 2
-            }
-        }
-    },
-    "ui": {
-        "title": "Testausserverin j\u00e4senet - Status",
-        "header": "Testausserveri j\u00e4senet - Status",
-        "description": "Testausserveri-organisaation j\u00e4senten kotisivujen tilannehuone.",
-        "logo": "https://static.testausserveri.fi/testausserveri_logo_colored_square.png",
-        "ui.link": "https://testausserveri.fi",
-        "buttons": [
-            {
-                "name": "Testausserverin palveluiden status",
-                "link": "https://status.testausserveri.fi/"
-            }
-        ]
-    },
-    "endpoints": [
-        {
-            "name": "roytakanen.fi",
-            "url": "https://roytakanen.fi/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "haka.dev",
-            "url": "https://haka.dev/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "antti.codes",
-            "url": "https://antti.codes/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "aj-tech.site",
-            "url": "https://aj-tech.site/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "lajp.fi",
-            "url": "https://lajp.fi/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "vilepis.dev",
-            "url": "https://vilepis.dev/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "lhf.blue",
-            "url": "https://lhf.blue/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "midka.dev",
-            "url": "https://midka.dev/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "raikas.dev",
-            "url": "https://raikas.dev/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "mag.wiki",
-            "url": "https://mag.wiki/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "ruben.fi",
-            "url": "https://ruben.fi/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "trimpsuz.xyz",
-            "url": "https://trimpsuz.xyz/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "mixu.wtf",
-            "url": "https://mixu.wtf/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "niilas.fi",
-            "url": "https://niilas.fi/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "eetu.codes",
-            "url": "https://eetu.codes/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "eino.pitkala.net",
-            "url": "https://eino.pitkala.net/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        },
-        {
-            "name": "nikke.dev",
-            "url": "https://nikke.dev/",
-            "interval": "1m",
-            "conditions": [
-                "[STATUS] == 200",
-                "[CERTIFICATE_EXPIRATION] > 48h"
-            ],
-            "alerts": [
-                {
-                    "type": "discord"
-                }
-            ]
-        }
-    ]
-}
+---
+storage:
+  type: postgres
+  path: postgres://username:password@memberspostgres:5432/gatus?sslmode=disable
+debug: true
+skip-invalid-config-update: true
+disable-monitoring-lock: true
+alerting:
+  discord:
+    webhook-url: "##WEBHOOK_PLACEHOLDER##"
+    default-alert:
+      enabled: true
+      send-on-resolved: true
+      failure-threshold: 2
+      success-threshold: 2
+ui:
+  title: Testausserverin jäsenet - Status
+  header: Testausserveri jäsenet - Status
+  description: Testausserveri-organisaation jäsenten kotisivujen tilannehuone.
+  logo: https://static.testausserveri.fi/testausserveri_logo_colored_square.png
+  ui.link: https://testausserveri.fi
+  buttons:
+  - name: Testausserverin palveluiden status
+    link: https://status.testausserveri.fi/
+endpoints:
+- name: roytakanen.fi
+  url: https://roytakanen.fi/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: haka.dev
+  url: https://haka.dev/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: antti.codes
+  url: https://antti.codes/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: aj-tech.site
+  url: https://aj-tech.site/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: lajp.fi
+  url: https://lajp.fi/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: vilepis.dev
+  url: https://vilepis.dev/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: lhf.blue
+  url: https://lhf.blue/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: midka.dev
+  url: https://midka.dev/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: raikas.dev
+  url: https://raikas.dev/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: mag.wiki
+  url: https://mag.wiki/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: ruben.fi
+  url: https://ruben.fi/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: trimpsuz.xyz
+  url: https://trimpsuz.xyz/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: mixu.wtf
+  url: https://mixu.wtf/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: niilas.fi
+  url: https://niilas.fi/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: eetumaenpaa.fi
+  url: https://eetumaenpaa.fi/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: eino.pitkala.net
+  url: https://eino.pitkala.net/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
+- name: nikke.dev
+  url: https://nikke.dev/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
