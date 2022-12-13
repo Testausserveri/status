@@ -24,5 +24,5 @@ git clone https://github.com/RoyTakanen/status.git
 To finish things I would also add a cron job that would pull the changes on the repo and redeploy the stack.
 
 ```sh
-* * * * * cd /opt/status && git pull && docker-compose up -d
+* * * * * cd /opt/status && git pull && docker-compose up -d --remove-orphans
 ```
