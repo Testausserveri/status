@@ -1,4 +1,4 @@
-# gatus-deployer
+# Status (testausserveri)
 This is [testausserveri](https://testausserveri.fi)'s status page configuration. 
 
 
