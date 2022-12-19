@@ -8,7 +8,7 @@ disable-monitoring-lock: true
 
 alerting:
   discord:
-    webhook-url: "##WEBHOOK_PLACEHOLDER##"
+    webhook-url: "WEBHOOK_PLACEHOLDER"
     default-alert:
       enabled: true
       send-on-resolved: true

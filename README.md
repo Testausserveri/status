@@ -1,4 +1,7 @@
 # Status (testausserveri)
+
+**!!! THERE IS NO AUTODEPLOY FOR THIS REPO! ASK ROY TO DEPLOY THIS! !!**
+
 This is [testausserveri](https://testausserveri.fi)'s status page configuration. 
 
 
@@ -12,17 +15,8 @@ This repository contains the docker-compose files and gatus configurations for t
 
 ## Initialize
 
-I would recommend placing this repo to `/opt` directory.
-
-It would happen followingly:
+Deploy to a server:
 
 ```sh
-cd /opt
-git clone https://github.com/RoyTakanen/status.git
-```
-
-To finish things I would also add a cron job that would pull the changes on the repo and redeploy the stack.
-
-```sh
-* * * * * cd /opt/status && git pull && docker-compose up -d --remove-orphans
+ansible-playbook deploy.yml -i inventory.ini
 ```
