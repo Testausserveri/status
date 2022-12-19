@@ -41,17 +41,19 @@
       version: master
       force: yes
 
-  - name: Ensure webhook is set
+  - name: Ensure webhook is set (testausserveri)
     ansible.builtin.lineinfile:
       path: /opt/status/config/testausserveri/config.yaml
-      regexp: '^WEBHOOK_PLACEHOLDER'
+      regexp: '^(.*)WEBHOOK_PLACEHOLDER(.*)$'
       line: "    webhook-url: \"{{ webhook }}\""
+      backrefs: yes
 
-  - name: Ensure webhook is set
+  - name: Ensure webhook is set (members)
     ansible.builtin.lineinfile:
       path: /opt/status/config/members/config.yaml
-      regexp: '^WEBHOOK_PLACEHOLDER'
+      regexp: '^(.*)WEBHOOK_PLACEHOLDER(.*)$'
       line: "    webhook-url: \"{{ webhook }}\""
+      backrefs: yes
 
   - name: Start the status page
     community.docker.docker_compose:
