@@ -27,7 +27,7 @@ ui:
 
 endpoints:
   - name: Etusivu
-    group: Viralliset
+    group: 01 - Viralliset
     url: "https://testausserveri.fi/"
     interval: 1m
     conditions:
@@ -38,7 +38,7 @@ endpoints:
       - type: discord
 
   - name: API
-    group: Viralliset
+    group: 01 - Viralliset
     url: "https://api.testausserveri.fi/v1/discord/guildInfo"
     interval: 1m
     conditions:
@@ -50,7 +50,7 @@ endpoints:
       - type: discord
 
   - name: Karhu
-    group: Viralliset
+    group: 01 - Viralliset
     url: "https://karhu.testausserveri.fi/"
     interval: 1m
     conditions:
@@ -60,7 +60,7 @@ endpoints:
       - type: discord
 
   - name: OpenWilma
-    group: Viralliset
+    group: 01 - Viralliset
     url: "https://openwilma.testausserveri.fi/"
     interval: 1m
     conditions:
@@ -70,7 +70,7 @@ endpoints:
       - type: discord
 
   - name: QR-pyörä
-    group: Viralliset
+    group: 01 - Viralliset
     url: "https://qrpyora.fi/"
     interval: 1m
     conditions:
@@ -81,7 +81,7 @@ endpoints:
       - type: discord
 
   - name: Bitwarden
-    group: Viralliset
+    group: 01 - Viralliset
     url: "https://bitwarden.testausserveri.fi/"
     interval: 1m
     conditions:
@@ -90,8 +90,18 @@ endpoints:
     alerts:
       - type: discord
 
+  - name: Testausserveri ID
+    group: 01 - Viralliset
+    url: "https://id.testausserveri.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
   - name: Mastodon
-    group: Viralliset
+    group: 01 - Viralliset
     url: "https://mastodon.testausserveri.fi/"
     interval: 1m
     conditions:
@@ -101,7 +111,7 @@ endpoints:
       - type: discord
 
   - name: Etusivu
-    group: Testaustime
+    group: 02 - Testaustime
     url: "https://testaustime.fi/"
     interval: 1m
     conditions:
@@ -112,7 +122,7 @@ endpoints:
       - type: discord
 
   - name: API
-    group: Testaustime
+    group: 02 - Testaustime
     url: "https://api.testaustime.fi/auth/login"
     interval: 1m
     conditions:
@@ -122,7 +132,7 @@ endpoints:
       - type: discord
 
   - name: Matikkaeditori
-    group: Matikkaeditori
+    group: 03 - Matikkaeditori
     url: "https://matikkaeditori.fi/"
     interval: 1m
     conditions:
@@ -133,7 +143,7 @@ endpoints:
       - type: discord
 
   - name: v3
-    group: Matikkaeditori
+    group: 03 - Matikkaeditori
     url: "https://v3.matikkaeditori.fi/"
     interval: 1m
     conditions:
@@ -143,7 +153,7 @@ endpoints:
       - type: discord
 
   - name: Beta
-    group: Matikkaeditori
+    group: 03 - Matikkaeditori
     url: "https://beta.matikkaeditori.fi/"
     interval: 1m
     conditions:
@@ -153,7 +163,7 @@ endpoints:
       - type: discord
       
   - name: Kaava
-    group: Matikkaeditori
+    group: 03 - Matikkaeditori
     url: "https://kaava.matikkaeditori.fi/"
     interval: 1m
     conditions:
@@ -163,7 +173,7 @@ endpoints:
       - type: discord
 
   - name: Abitikku
-    group: Abitikku
+    group: 04 - Abitikku
     url: "https://abitikku.fi/"
     interval: 1m
     conditions:
@@ -174,7 +184,7 @@ endpoints:
       - type: discord
 
   - name: Teapot
-    group: Palvelimet
+    group: 05 - Palvelimet
     url: "https://teapot.testausserveri.fi"
     interval: 1m
     conditions:
