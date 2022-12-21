@@ -34,9 +34,10 @@
     apt: name="docker-compose" state=latest
     tags: docker
 
+  # this could also just copy files from current folder (on local machine) to /opt/status (remote machine)
   - name: Git checkout
     ansible.builtin.git:
-      repo: 'https://github.com/RoyTakanen/status.git'
+      repo: 'https://github.com/testausserveri/status.git'
       dest: /opt/status
       version: master
       force: yes
