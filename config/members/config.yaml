@@ -106,7 +106,8 @@ endpoints:
   - type: discord
 - name: trimpsuz.xyz
   url: https://trimpsuz.xyz/
-  interval: 1m
+  # there is something blocking the check
+  interval: 15m # will switch to 30m if this does not work
   conditions:
   - "[STATUS] == 200"
   - "[CERTIFICATE_EXPIRATION] > 48h"
