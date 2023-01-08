@@ -37,8 +37,9 @@ endpoints:
   conditions:
   - "[STATUS] == 200"
   - "[CERTIFICATE_EXPIRATION] > 48h"
-  alerts:
-  - type: discord
+  # this has been very spammy
+  # alerts:
+  # - type: discord
 - name: antti.codes
   url: https://antti.codes/
   interval: 1m
