@@ -122,11 +122,10 @@ endpoints:
   alerts:
   - type: discord
 - name: niilas.fi
-  url: https://niilas.fi/
+  url: http://niilas.fi/
   interval: 1m
   conditions:
-  - "[STATUS] == 200"
-  - "[CERTIFICATE_EXPIRATION] > 48h"
+  - "[STATUS] == 302"
   alerts:
   - type: discord
 - name: eetumaenpaa.fi
