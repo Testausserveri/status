@@ -125,7 +125,7 @@ endpoints:
   url: http://niilas.fi/
   interval: 1m
   conditions:
-  - "[STATUS] == 302"
+  - "[STATUS] == 200"
   alerts:
   - type: discord
 - name: eetumaenpaa.fi
