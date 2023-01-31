@@ -49,7 +49,7 @@ endpoints:
   alerts:
   - type: discord
 - name: lajp.fi
-  url: https://lajp.fi/
+  url: https://lajp.fi/health
   interval: 1m
   conditions:
   - "[STATUS] == 200"

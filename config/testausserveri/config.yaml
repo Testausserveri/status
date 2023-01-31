@@ -123,10 +123,10 @@ endpoints:
 
   - name: API
     group: 02 - Testaustime
-    url: "https://api.testaustime.fi/auth/login"
+    url: "https://api.testaustime.fi/health"
     interval: 1m
     conditions:
-      - "[STATUS] == 404"
+      - "[STATUS] == 200"
       - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: discord
