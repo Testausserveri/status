@@ -35,6 +35,12 @@
     apt: name="docker-compose" state=latest
     tags: docker
 
+  - name: Enable & start docker
+    ansible.builtin.systemd:
+      name: docker
+      enabled: true
+      state: started
+
   # this could also just copy files from current folder (on local machine) to /opt/status (remote machine)
   - name: Git checkout
     ansible.builtin.git:

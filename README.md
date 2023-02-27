@@ -15,8 +15,14 @@ This repository contains the docker-compose files and gatus configurations for t
 
 ## Initialize
 
-Deploy to a server:
+Deploy to a server (no sudo):
 
 ```sh
 ansible-playbook deploy.yml -i inventory.ini
+```
+
+Deploy to a server (sudo):
+
+```sh
+ansible-playbook deploy.yml -i inventory.ini --become --ask-become-pass
 ```
