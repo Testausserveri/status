@@ -18,13 +18,23 @@
 
   - name: Get Docker key
     apt_key:
-      url: https://download.docker.com/linux/ubuntu/gpg
+      url: https://download.docker.com/linux/{{ ansible_distribution|lower }}/gpg
       state: present
     tags: docker
 
+  # I had some problems with getting the arm64 version installed on Oracle VPS
+  # and this SO post helped https://stackoverflow.com/questions/58169348/how-is-the-architecture-fact-called-in-ansible/73096785#73096785
   - name: Add Docker packages to Repository
+    vars:
+      deb_architecture: { 
+        "armv6l": "armhf", 
+        "armv7l": "armhf", 
+        "aarch64": "arm64",
+        "x86_64": "amd64", 
+        "i386": "i386"
+      }
     apt_repository:
-      repo: deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_lsb.codename|lower }} stable
+      repo: deb [arch={{ [ansible_architecture] | map('extract', deb_architecture) | first }}] https://download.docker.com/{{ ansible_system | lower }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable
     tags: docker
 
   - name: Install Docker-CE
