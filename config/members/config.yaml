@@ -176,4 +176,12 @@ endpoints:
   - "[CERTIFICATE_EXPIRATION] > 48h"
   alerts:
   - type: discord
+- name: sergey.fi
+  url: https://sergey.fi/
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
   
