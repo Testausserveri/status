@@ -192,4 +192,19 @@ endpoints:
   - "[CERTIFICATE_EXPIRATION] > 48h"
   alerts:
   - type: discord
+- name: samip.dev
+  url: https://samip.dev
+  interval: 10m
+  conditions:
+  - "[STATUS] == 200"
+  alerts:
+  - type: discord
+- name: skym.fi
+  url: https://skym.fi
+  interval: 5m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
   
