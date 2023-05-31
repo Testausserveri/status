@@ -203,8 +203,19 @@ endpoints:
     alerts:
       - type: discord
 
+  - name: testaus.link
+    group: 05 - testaus.link
+    url: "https://testaus.link/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+      # - "[DOMAIN_EXPIRATION] > 720h"
+    alerts:
+      - type: discord
+
   - name: Teapot
-    group: 05 - Palvelimet
+    group: 06 - Palvelimet
     url: "https://teapot.testausserveri.fi"
     interval: 1m
     conditions:
