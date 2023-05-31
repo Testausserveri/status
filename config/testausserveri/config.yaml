@@ -110,12 +110,23 @@ endpoints:
     alerts:
       - type: discord
 
-  - name: Koirameili
+  # For some reason this does not currently work
+  # - name: Koirameili
+  #   group: 01 - Viralliset
+  #   url: "tcp://152.67.70.55:25"
+  #   interval: 1m
+  #   conditions:
+  #     - "[CONNECTED] == true"
+  #   alerts:
+  #     - type: discord
+
+  - name: Kaatis.party
     group: 01 - Viralliset
-    url: "tcp://152.67.70.55:25"
+    url: "https://kaatis.party/"
     interval: 1m
     conditions:
-      - "[CONNECTED] == true"
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: discord
 

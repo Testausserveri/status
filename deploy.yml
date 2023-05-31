@@ -52,12 +52,23 @@
       state: started
 
   # this could also just copy files from current folder (on local machine) to /opt/status (remote machine)
-  - name: Git checkout
-    ansible.builtin.git:
-      repo: 'https://github.com/testausserveri/status.git'
-      dest: /opt/status
-      version: master
-      force: yes
+  # - name: Git checkout
+  #   ansible.builtin.git:
+  #     repo: 'https://github.com/testausserveri/status.git'
+  #     dest: /opt/status
+  #     version: master
+  #     force: yes
+
+  - name: Copy docker-compose
+    copy:
+      src: docker-compose.yml
+      dest: /opt/status/docker-compose.yml
+
+  - name: Copy config
+    copy:
+      # note the '/' <-- !!!
+      src: config/
+      dest: /opt/status/config/
 
   - name: Ensure webhook is set (testausserveri)
     ansible.builtin.lineinfile:
