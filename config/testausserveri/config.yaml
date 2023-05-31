@@ -112,7 +112,7 @@ endpoints:
 
   - name: Koirameili
     group: 01 - Viralliset
-    url: "tcp://teapot.testausserveri.fi:25"
+    url: "tcp://152.67.70.55:25"
     interval: 1m
     conditions:
       - "[CONNECTED] == true"
