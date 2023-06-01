@@ -130,6 +130,16 @@ endpoints:
     alerts:
       - type: discord
 
+  - name: TestausWiki
+    group: 01 - Viralliset
+    url: "https://wiki.testausserveri.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
   - name: Etusivu
     group: 02 - Testaustime
     url: "https://testaustime.fi/"
