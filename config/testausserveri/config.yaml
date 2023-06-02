@@ -120,16 +120,6 @@ endpoints:
   #   alerts:
   #     - type: discord
 
-  - name: Kaatis.party
-    group: 01 - Viralliset
-    url: "https://kaatis.party/"
-    interval: 1m
-    conditions:
-      - "[STATUS] == 200"
-      - "[CERTIFICATE_EXPIRATION] > 48h"
-    alerts:
-      - type: discord
-
   - name: TestausWiki
     group: 01 - Viralliset
     url: "https://wiki.testausserveri.fi/"
@@ -231,5 +221,65 @@ endpoints:
     conditions:
       - "[CONNECTED] == true"
       - "[IP] == 152.67.70.55"
+    alerts:
+      - type: discord
+
+  - name: AdventOfCode
+    group: 07 - Muut
+    url: "https://aoc.testausserveri.fi"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: Autot
+    group: 07 - Muut
+    url: "https://autot.testausserveri.fi"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: Maven
+    group: 07 - Muut
+    url: "https://maven.testausserveri.fi"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: Winprizes
+    group: 07 - Muut
+    url: "https://winprizes.testausserveri.fi"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: ID Example
+    group: 07 - Muut
+    url: "https://idexample.testausserveri.fi"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+    alerts:
+      - type: discord
+
+  - name: Kaatis.party
+    group: 01 - Viralliset
+    url: "https://kaatis.party/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: discord
