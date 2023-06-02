@@ -204,11 +204,22 @@ endpoints:
       - type: discord
 
   - name: testaus.link
-    group: 05 - testaus.link
+    group: 05 - link shorteners
     url: "https://testaus.link/"
     interval: 1m
     conditions:
       - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+      # - "[DOMAIN_EXPIRATION] > 720h"
+    alerts:
+      - type: discord
+
+  - name: link.testausserveri.fi
+    group: 05 - link shorteners
+    url: "https://link.testausserveri.fi/"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 403"
       - "[CERTIFICATE_EXPIRATION] > 48h"
       # - "[DOMAIN_EXPIRATION] > 720h"
     alerts:
