@@ -25,7 +25,7 @@ ui:
 endpoints:
 - name: roytakanen.fi
   url: https://roytakanen.fi/
-  interval: 1m
+  interval: 5m
   conditions:
   - "[STATUS] == 200"
   - "[CERTIFICATE_EXPIRATION] > 48h"
@@ -199,8 +199,8 @@ endpoints:
   - "[STATUS] == 200"
   alerts:
   - type: discord
-- name: skym.fi
-  url: https://skym.fi
+- name: links.skylab.fi
+  url: https://links.skylab.fi
   interval: 5m
   conditions:
   - "[STATUS] == 200"
