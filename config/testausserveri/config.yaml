@@ -227,7 +227,7 @@ endpoints:
 
   - name: Teapot
     group: 06 - Palvelimet
-    url: "https://teapot.testausserveri.fi"
+    url: "icmp://teapot.testausserveri.fi"
     interval: 1m
     conditions:
       - "[CONNECTED] == true"
