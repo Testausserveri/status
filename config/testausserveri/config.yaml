@@ -162,16 +162,6 @@ endpoints:
     alerts:
       - type: discord
 
-  - name: v3
-    group: 03 - Matikkaeditori
-    url: "https://v3.matikkaeditori.fi/"
-    interval: 1m
-    conditions:
-      - "[STATUS] == 200"
-      - "[CERTIFICATE_EXPIRATION] > 48h"
-    alerts:
-      - type: discord
-
   - name: Beta
     group: 03 - Matikkaeditori
     url: "https://beta.matikkaeditori.fi/"
@@ -285,8 +275,17 @@ endpoints:
     alerts:
       - type: discord
 
+  - name: Discord vanity url (discord.gg/testaus)
+    group: 07 - Muut
+    url: "https://discord.com/api/v9/invites/testaus?with_counts=true&with_expiration=true"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+    alerts:
+      - type: discord
+
   - name: Kaatis.party
-    group: 07 - Viralliset
+    group: 07 - Muut
     url: "https://kaatis.party/"
     interval: 1m
     conditions:
