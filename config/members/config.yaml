@@ -200,4 +200,12 @@ endpoints:
   - "[CERTIFICATE_EXPIRATION] > 48h"
   alerts:
   - type: discord
+- name: intke.net
+  url: https://intke.net
+  interval: 1m
+  conditions:
+  - "[STATUS] == 200"
+  - "[CERTIFICATE_EXPIRATION] > 48h"
+  alerts:
+  - type: discord
   
