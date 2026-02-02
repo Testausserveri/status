@@ -225,16 +225,6 @@ endpoints:
     alerts:
       - type: discord
 
-  - name: AdventOfCode
-    group: 07 - Muut
-    url: "https://aoc.testausserveri.fi"
-    interval: 1m
-    conditions:
-      - "[STATUS] == 200"
-      - "[CERTIFICATE_EXPIRATION] > 48h"
-    alerts:
-      - type: discord
-
   - name: Autot
     group: 07 - Muut
     url: "https://autot.testausserveri.fi"
